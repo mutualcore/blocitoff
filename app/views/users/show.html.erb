@@ -1,7 +1,9 @@
-<div>
-  <h2 class="media-heading"><%= @user.name %></h2>
-  <%= @user.email %>
-</div>
-<div>
-  <%= link_to "Change your password", edit_user_registration_path %>
+<div class="col-md-8 pull-left">
+    <div class="media-body">
+      <h2 class="media-heading"><%= @user.name %></h2>
+      <%= @user.email %>
+      <%= link_to "Change your password", edit_user_registration_path %>
+      <%= render @items %>
+      <%= render partial: 'items/form', locals: { user: @user, item: @item } %>
+  </div>
 </div>
