@@ -1,4 +1,5 @@
 <%= content_tag :div, id: "item-#{item.id}" do %>
-  <%= link_to "", [item.user, item], method: :delete, class: 'glyphicon glyphicon-ok', remote: true %>
-  <%= item.name %>
+  <p class='pull-left'><%= link_to "", [item.user, item], method: :delete, class: 'glyphicon glyphicon-ok', remote: true %></p>
+  <h5 class='list-group-item-heading'><%= item.name %></h5> 
+  <p class='list-group-item-text'><%= item.days_left %> days left to complete</p>
 <% end %>
