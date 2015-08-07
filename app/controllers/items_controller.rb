@@ -12,6 +12,21 @@ class ItemsController < ApplicationController
     redirect_to @user
   end
 
+  def destroy
+    @user = User.find(params[:user_id])
+    @item = Item.find(params[:id])
+    if @item.destroy
+      flash[:notice] = "Task was deleted successfully"
+    else
+      flash[:error] = "There was an error deleting the task"
+    end
+
+    respond_to do |format|
+      format.html { redirect_to user_item_path(@user) }
+      format.js
+    end
+  end
+
   private
   
   def item_params
